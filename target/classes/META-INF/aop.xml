@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<aspectj>
+    <weaver options="-verbose -showWeaveInfo -Xreweavable">
+        <include within="com.threeti.ics.server.domain.socketserver.command.SdkVerificationCommand"/>
+        <include within="com.threeti.ics.server.domain.protocoldefinition.commandrequest.SdkVerificationRequest"/>
+        <include within="com.threeti.ics.server.domain.socketserver.command.BuildConversationCommand"/>
+        <include within="com.threeti.ics.server.domain.socketserver.command.MessageTransferCommand"/>
+        <include within="com.threeti.ics.server.domain.socketserver.command.CustomerServiceLoginCommand"/>
+        <include within="com.threeti.ics.server.domain.socketserver.handler.AcceptSessionHandler"/>
+        <include within="com.threeti.ics.server.domain.socketserver.handler.SuspendSessionHandler"/>
+        <include within="com.threeti.ics.server.domain.socketserver.handler.TerminateSessionHandler"/>
+        <include within="com.threeti.ics.server.domain.socketserver.handler.ResumeSessionHandler"/>
+        <include within="com.threeti.ics.server.domain.socketserver.handler.AppointSessionHandler"/>
+        <exclude within="*..*CGLIB*"/>
+        <exclude within="*..*javassist*"/>
+    </weaver>
+
+    <aspects>
+        <aspect name="org.springframework.beans.factory.aspectj.AnnotationBeanConfigurerAspect"/>
+        <aspect name="org.springframework.scheduling.aspectj.AnnotationAsyncExecutionAspect"/>
+        <aspect name="org.springframework.transaction.aspectj.AnnotationTransactionAspect"/>
+        <aspect name="org.springframework.cache.aspectj.AnnotationCacheAspect"/>
+    </aspects>
+
+</aspectj>
